@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 
 
 const OnOff = () => {
-    const [state, setState] = useState(true)
+    const [on, setOn] = useState(true)
 
     const onStyle = {
         width: "30px",
@@ -10,8 +10,8 @@ const OnOff = () => {
         border: "1px solid black",
         display: "inline-block",
         padding: "2px",
-        backgroundColor: state ? "green" : "white",
-        color: state ? "white" : "black"
+        backgroundColor: on ? "green" : "white",
+        color: on ? "white" : "black"
     }
     const offStyle = {
         width: "30px",
@@ -20,8 +20,8 @@ const OnOff = () => {
         display: "inline-block",
         marginLeft: "5px",
         padding: "2px",
-        backgroundColor: state? "white" : "red",
-        color: state ? "black" : "white"
+        backgroundColor: on ? "white" : "red",
+        color: on ? "black" : "white"
     }
     const indicatorStyle = {
         width: "10px",
@@ -30,24 +30,17 @@ const OnOff = () => {
         border: "1px solid black",
         display: "inline-block",
         marginLeft: "5px",
-        backgroundColor: state ? "green" : "red",
+        backgroundColor: on ? "green" : "red",
     }
 
 
-
-    const clickOn = () => {
-        setState(!state)
-    }
-
-    const clickOff = () => {
-        setState(!state)
-    }
+    const clickForChange = () => setOn(!on)
 
     return (
         <div>
-            <div style={onStyle} onClick={clickOn}>ON</div>
-            <div style={offStyle} onClick={clickOff}>OFF</div>
-            <div style={indicatorStyle}></div>
+            <div style={onStyle} onClick={clickForChange}>ON</div>
+            <div style={offStyle} onClick={clickForChange}>OFF</div>
+            <div style={indicatorStyle}/>
         </div>
     );
 };
