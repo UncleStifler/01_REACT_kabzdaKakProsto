@@ -2,11 +2,23 @@ import React from 'react';
 
 type AccordionTitleType = {
     titleAccordion: string
+    accordionCollapsed: boolean
+    setAccordionCollapsed: (accordionCollapsed: boolean) => void
 }
 
+
 const AccordionTitle = (props: AccordionTitleType) => {
+
+    const collapseHandler = () => {
+        props.setAccordionCollapsed(!props.accordionCollapsed)
+    }
+
     return (
-        <h3>{props.titleAccordion}</h3>
+        <button
+            style={{marginTop: "10px"}}
+            onClick={collapseHandler}>
+            {props.titleAccordion}
+        </button>
     );
 };
 

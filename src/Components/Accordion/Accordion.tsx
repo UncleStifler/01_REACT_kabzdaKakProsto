@@ -4,15 +4,18 @@ import AccordionBody from "./AccordionBody";
 
 type AccordionType = {
     titleAccordion: string
-    collapsed: boolean
+    accordionCollapsed: boolean
+    setAccordionCollapsed: (accordionCollapsed: boolean) => void
 }
 
 
 export const Accordion = (props: AccordionType) => {
-        return <>
-            <AccordionTitle
-                titleAccordion={props.titleAccordion}/>
-            { !props.collapsed && <AccordionBody/>}
-        </>
+    return <>
+        <AccordionTitle
+            accordionCollapsed={props.accordionCollapsed}
+            setAccordionCollapsed={props.setAccordionCollapsed}
+            titleAccordion={props.titleAccordion}/>
+        {!props.accordionCollapsed && <AccordionBody/>}
+    </>
 
 }
