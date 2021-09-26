@@ -3,7 +3,7 @@ import React from 'react';
 
 
 const AccordionBody = () => {
-    console.log("SelfControlledAccordionBody rendering")
+    console.log("UncontrolledAccordionBody rendering")
     return (
         <ul>
             <li>1</li>

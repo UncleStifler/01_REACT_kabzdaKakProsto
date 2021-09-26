@@ -5,7 +5,7 @@ type AccordionTitleType = {
     titleAccordion: string
 }
 
-const SelfControlledAccordionTitle = (props: AccordionTitleType) => {
+const UncontrolledAccordionTitle = (props: AccordionTitleType) => {
 
     const accordionHandler = () => {
         props.onClick()
@@ -18,4 +18,4 @@ const SelfControlledAccordionTitle = (props: AccordionTitleType) => {
     );
 };
 
-export default SelfControlledAccordionTitle;
+export default UncontrolledAccordionTitle;

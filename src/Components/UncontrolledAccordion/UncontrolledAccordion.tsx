@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
-import SelаControlledAccordionTitle from "./SelfControlledAccordionTitle";
 import SelfControlledAccordionBody from "./SelfControlledAccordionBody";
+import UncontrolledAccordionTitle from "./UncontrolledAccordionTitle";
 
 type AccordionType = {
     titleAccordion: string
@@ -13,9 +13,11 @@ export const UncontrolledAccordion = (props: AccordionType) => {
 
     return (
         <div>
-            <SelаControlledAccordionTitle
+            <UncontrolledAccordionTitle
                 titleAccordion={props.titleAccordion}
-                onClick={() => {setCollapse(!collapse)}}/>
+                onClick={() => {
+                    setCollapse(!collapse)
+                }}/>
             {collapse && <SelfControlledAccordionBody/>}
         </div>
     )

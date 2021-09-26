@@ -5,7 +5,7 @@ import AccordionBody from "./AccordionBody";
 type AccordionType = {
     titleAccordion: string
     accordionCollapsed: boolean
-    setAccordionCollapsed: (accordionCollapsed: boolean) => void
+    onChange: () => void
 }
 
 
@@ -13,7 +13,7 @@ export const Accordion = (props: AccordionType) => {
     return <>
         <AccordionTitle
             accordionCollapsed={props.accordionCollapsed}
-            setAccordionCollapsed={props.setAccordionCollapsed}
+            onChange={props.onChange}
             titleAccordion={props.titleAccordion}/>
         {!props.accordionCollapsed && <AccordionBody/>}
     </>

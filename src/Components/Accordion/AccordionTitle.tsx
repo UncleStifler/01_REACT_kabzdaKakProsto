@@ -3,14 +3,14 @@ import React from 'react';
 type AccordionTitleType = {
     titleAccordion: string
     accordionCollapsed: boolean
-    setAccordionCollapsed: (accordionCollapsed: boolean) => void
+    onChange: () => void
 }
 
 
 const AccordionTitle = (props: AccordionTitleType) => {
 
     const collapseHandler = () => {
-        props.setAccordionCollapsed(!props.accordionCollapsed)
+        props.onChange()
     }
 
     return (

@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import './App.css';
 import {Title} from "./Components/Title";
-import OnOff from "./Components/OnOff/OnOff";
-import {UncontrolledAccordion} from "./Components/SelfControlledAccordion/UncontrolledAccordion";
+import UncontrolledOnOff from "./Components/OnOff/UncontrolledOnOff";
+import {UncontrolledAccordion} from "./Components/UncontrolledAccordion/UncontrolledAccordion";
 import {UncontrolledRating} from "./Components/UncontrolledRating/UncontrolledRating";
 import {Rating, RatingValueType} from "./Components/Rating/Rating";
 import {Accordion} from "./Components/Accordion/Accordion";
@@ -15,28 +15,38 @@ function App() {
     const [accordionCollapsed, setAccordionCollapsed] = useState<boolean>(false)
     const [on, setOn] = useState(true)
 
+    const forCollapsedAccordion = () => {
+        setAccordionCollapsed(!accordionCollapsed)
+    }
+
+    const onOffControlledHandler = () => {
+        setOn(!on)
+    }
+
     return (
         <div className="App">
             <Title title={'OnePageApplication'}/>
-            <div style={{marginTop: "10px"}}>
-                <OnOff/>
-                <OnOff/>
-            </div>
+            <Accordion
+                titleAccordion={"Controlled Accordion"}
+                accordionCollapsed={accordionCollapsed}
+                onChange={forCollapsedAccordion}
+            />
+            <UncontrolledAccordion
+                titleAccordion={'Uncontrolled Accordion'}/>
+            <Rating value={ratingValue} onClick={setRatingValue}/>
+            <UncontrolledRating/>
             <div>
                 <ControlledOnOff
-                on={on}
-                setOn={setOn}/>
-            </div>
+                    on={on}
+                    title={"Controlled onOff"}
+                    onChange={onOffControlledHandler}/>
 
-            <UncontrolledAccordion
-                titleAccordion={'Algo'}/>
-            <UncontrolledRating/>
-            <Rating value={ratingValue} onClick={setRatingValue}/>
-            <Accordion
-                titleAccordion={"Menu"}
-                accordionCollapsed={accordionCollapsed}
-                setAccordionCollapsed={setAccordionCollapsed}
-            />
+            </div>
+            <div style={{marginTop: "10px"}}>
+                <UncontrolledOnOff
+                    title={"Uncontrolled onOff"}
+                    onInformation={setOn}/> {on.toString()}
+            </div>
         </div>
     );
 }

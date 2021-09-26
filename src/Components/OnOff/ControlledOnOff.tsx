@@ -1,14 +1,15 @@
-import React, {useState} from 'react';
+import React from 'react';
 
 type ControlledOnOffType = {
     on: boolean
-    setOn: (on:boolean) => void
+    onChange: () => void
+    title: string
 }
 
 
 const ControlledOnOff = (props: ControlledOnOffType) => {
 
-    const {on , setOn} = props
+    const {on, onChange, title} = props
 
     const onStyle = {
         width: "30px",
@@ -40,10 +41,11 @@ const ControlledOnOff = (props: ControlledOnOffType) => {
     }
 
 
-    const clickForChange = () => setOn(!on)
+    const clickForChange = () => onChange()
 
     return (
         <div>
+            <h4>{title}</h4>
             <div style={onStyle} onClick={clickForChange}>ON</div>
             <div style={offStyle} onClick={clickForChange}>OFF</div>
             <div style={indicatorStyle}/>
