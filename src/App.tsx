@@ -7,6 +7,10 @@ import {UncontrolledRating} from "./Components/UncontrolledRating/UncontrolledRa
 import {Rating, RatingValueType} from "./Components/Rating/Rating";
 import {Accordion} from "./Components/Accordion/Accordion";
 import ControlledOnOff from "./Components/OnOff/ControlledOnOff";
+import UncontrolledInput from "./Components/Input/UncontrolledInput";
+import ControlledInput from "./Components/Input/ControlledInput";
+import ControlledCheckBox from "./Components/CheckBox/ControlledCheckBox";
+import ControlledSelect from "./Components/Select/ControlledSelect";
 
 
 function App() {
@@ -14,6 +18,10 @@ function App() {
     const [ratingValue, setRatingValue] = useState<RatingValueType>(0)
     const [accordionCollapsed, setAccordionCollapsed] = useState<boolean>(false)
     const [on, setOn] = useState(true)
+    const [textInput, setTextInput] = useState('')
+
+
+    console.log(textInput)
 
     const forCollapsedAccordion = () => {
         setAccordionCollapsed(!accordionCollapsed)
@@ -21,6 +29,10 @@ function App() {
 
     const onOffControlledHandler = () => {
         setOn(!on)
+    }
+
+    const inputStateChange = (textFromInput : string) => {
+        setTextInput(textFromInput)
     }
 
     return (
@@ -47,6 +59,12 @@ function App() {
                     title={"Uncontrolled onOff"}
                     onInformation={setOn}/> {on.toString()}
             </div>
+            <UncontrolledInput/>
+            <ControlledInput
+                textInput={textInput}
+                inputStateChange={inputStateChange}/>
+            <ControlledCheckBox/>
+            <ControlledSelect/>
         </div>
     );
 }
