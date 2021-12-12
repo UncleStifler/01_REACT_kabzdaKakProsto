@@ -13,8 +13,7 @@ const ControlledCheckBox = () => {
             <input
                 type="checkbox"
                 onChange={changeCheckBoxHandler}
-            checked={checkBox}/>
-
+                checked={checkBox}/>
         </div>
     );
 };
